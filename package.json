@@ -23,7 +23,9 @@
   "homepage": "https://github.com/trongtuyen96/chilipiper-test#readme",
   "devDependencies": {
     "cypress": "^9.6.1",
+    "cypress-social-logins": "^1.14.0",
     "cypress-xpath": "^1.6.2",
+    "dotenv": "^16.0.1",
     "typescript": "^4.6.4"
   }
 }

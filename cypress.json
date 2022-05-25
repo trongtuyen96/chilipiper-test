@@ -1,1 +1,5 @@
-{}
+{
+    "baseUrl": "https://www.googleapis.com",
+    "experimentalSessionAndOrigin": true,
+    "chromeWebSecurity": false
+}

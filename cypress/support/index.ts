@@ -16,6 +16,7 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 import 'cypress-xpath'
+// import 'dotenv'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
@@ -31,6 +32,34 @@ declare global {
              * @example cy.dataCy('greeting')
              */
             dataCy(value: string): Chainable<JQuery<HTMLElement>>
+
+            /**
+             * Custom command for IFrame Selector
+             * @param count=not-fixed
+             * @example cy.switchToIframe('#iframe','span')
+             */
+            switchToIframe(iframeSelector: string, ...elSelector: string[]): Chainable<any>
+
+            /**
+            * Custom command for Google Authentication
+            * @param count=0
+            * @example cy.loginByGoogleApi()
+            */
+            loginByGoogleApi(): Chainable<any>
+
+            /**
+            * Custom command for setting a variable
+            * @param count=2
+            * @example cy.setVariable(key: string, value: any)
+            */
+            setVariable(key: string, value: any): Chainable<any>
+
+             /**
+            * Custom command for getting a variable
+            * @param count=1
+            * @example cy.getVariable(key: string)
+            */
+            getVariable(key: string): Chainable<Object>
         }
     }
 }
