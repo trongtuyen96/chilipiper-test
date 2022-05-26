@@ -24,8 +24,6 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-import { Utils } from "./utils"
-
 const runtime_vars_file = 'cypress/runtime-vars.json'
 
 Cypress.Commands.add('dataCy', (value) => {
@@ -67,9 +65,9 @@ Cypress.Commands.add('loginByGoogleApi', () => {
         url: Cypress.config('baseUrl') + '/oauth2/v4/token',
         body: {
             grant_type: 'refresh_token',
-            client_id: Cypress.env('client_id'),
-            client_secret: Cypress.env('client_secret'),
-            refresh_token: Cypress.env('refresh_token')
+            client_id: Cypress.env('googleClientId'),
+            client_secret: Cypress.env('googleClientSecret'),
+            refresh_token: Cypress.env('googleRefreshToken')
         },
     }).then(({ body }) => {
         cy.log(body);

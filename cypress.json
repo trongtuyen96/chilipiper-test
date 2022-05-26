@@ -1,3 +1,23 @@
 {
-    "baseUrl": "https://www.googleapis.com"
+    "baseUrl": "https://www.googleapis.com",
+    "reporter": "cypress-multi-reporters",
+    "reporterOptions": {
+        "reporterEnabled": "cypress-mochawesome-reporter, mocha-junit-reporter",
+        "mochaJunitReporterReporterOptions": {
+            "mochaFile": "cypress/reports/junit/Report_[hash].xml",
+            "jenkinsMode": true
+        },
+        "cypressMochawesomeReporterReporterOptions": {
+            "charts": true,
+            "reportPageTitle": "My Test Suite",
+            "reportFilename": "Report",
+            "files": [
+                "cypress/reports/mochawesome/*.json"
+            ],
+            "embeddedScreenshots": true,
+            "inlineAssets": true,
+            "timestamp": "mmddyyyy_HHMMss"
+        }
+    },
+    "video": false
 }

@@ -25,7 +25,8 @@ describe("Gmail tests", () => {
                     method: 'GET',
                     url: gmailAPIUrl + '/messages',
                     headers: { Authorization: `Bearer ${access_token}` }
-                }).then(({ body }) => {
+                }).then(({ status, body }) => {
+                    expect(status).to.equal(200)
                     expect(body.messages).to.have.lengthOf(4)
                 })
             })
@@ -47,7 +48,10 @@ describe("Gmail tests", () => {
                         method: 'GET',
                         url: gmailAPIUrl + `/messages/${emailId}`,
                         headers: { Authorization: `Bearer ${access_token}` }
-                    }).then(({ body }) => {
+                    }).then(({ status, body }) => {
+
+                        // Validate status
+                        expect(status).to.equal(200)
 
                         // Validate snippet
                         expect(body.snippet).to.include('Dear Test, This is a sample email. Sincerely,')
@@ -91,8 +95,14 @@ describe("Gmail tests", () => {
                     body: {
                         raw: Utils.makeEmailBody(emailBody.to, emailBody.from, emailBody.subject, emailBody.message)
                     },
-                }).then(({ body }) => {
+                }).then(({ status, body }) => {
                     cy.log(body)
+
+                    // Validate status
+                    expect(status).to.equal(200)
+
+                    // Validate label
+                    expect(body.labelIds[0]).to.equal('SENT')
                 })
             })
         })
@@ -117,8 +127,14 @@ describe("Gmail tests", () => {
                         method: 'POST',
                         url: gmailAPIUrl + `/messages/${emailIdToTrash}/trash`,
                         headers: { Authorization: `Bearer ${access_token}` }
-                    }).then(({ body }) => {
+                    }).then(({ status, body }) => {
                         cy.log(body)
+
+                        // Validate status
+                        expect(status).to.equal(200)
+
+                        // Validate label 
+                        expect(body.labelIds[0]).to.equal('TRASH')
                     })
                 })
             })
@@ -132,8 +148,11 @@ describe("Gmail tests", () => {
                         method: 'DELETE',
                         url: gmailAPIUrl + `/messages/${emailId}`,
                         headers: { Authorization: `Bearer ${access_token}` }
-                    }).then(({ body }) => {
+                    }).then(({ status, body }) => {
                         cy.log(body)
+
+                        // Validate status
+                        expect(status).to.equal(204)
                     })
                 })
             })
