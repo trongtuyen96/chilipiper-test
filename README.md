@@ -1,3 +1,16 @@
+<h1 align="center">
+<img src="https://github.com/trongtuyen96/chilipiper-test/blob/6ee3a5aaae569326bb2aad5a5c5e7967d8376130/logo.png" alt="Chili Piper" align="center" width="300" />
+</h1>
+
+<h2 align="center">
+<a alt="CypressDashboardGmailTest" href="https://dashboard.cypress.io/projects/crgssz/runs">
+    <img src="https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/crgssz/main&style=flat&logo=cypress">
+</a>
+<a alt="GitHub Actions - Main" href="https://github.com/trongtuyen96/chilipiper-test/actions/workflows/main.yml">
+    <img src="https://github.com/trongtuyen96/chilipiper-test/actions/workflows/main.yml/badge.svg">
+</a>
+</h2>
+
 CHILI PIPER TEST
 
 ## Table of Contents
