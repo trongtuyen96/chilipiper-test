@@ -27,7 +27,7 @@ describe("Gmail tests - Login and View", () => {
                     headers: { Authorization: `Bearer ${access_token}` }
                 }).then(({ status, body }) => {
                     expect(status).to.equal(200)
-                    expect(body.messages).to.have.length.greaterThan(4)
+                    expect(body.messages).to.have.length.greaterThan(3)
                 })
             })
         })
