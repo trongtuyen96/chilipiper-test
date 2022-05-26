@@ -24,6 +24,8 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+import { Utils } from "./utils"
+
 const runtime_vars_file = 'cypress/runtime-vars.json'
 
 Cypress.Commands.add('dataCy', (value) => {
@@ -60,10 +62,6 @@ Cypress.Commands.add('getVariable', (key: string) => {
 
 Cypress.Commands.add('loginByGoogleApi', () => {
     cy.log('Logging in to Google')
-    // Cypress.Cookies.debug(true)
-    // Cypress.Cookies.preserveOnce()
-    // cy.intercept('/')
-
     cy.request({
         method: 'POST',
         url: Cypress.config('baseUrl') + '/oauth2/v4/token',
@@ -77,7 +75,7 @@ Cypress.Commands.add('loginByGoogleApi', () => {
         cy.log(body);
         const { access_token, id_token } = body
 
-        // store access_token and id_token
+        // Store access_token and id_token
         cy.setVariable('access_token', access_token)
         cy.setVariable('id_token', id_token)
 
@@ -100,26 +98,6 @@ Cypress.Commands.add('loginByGoogleApi', () => {
             }
 
             window.localStorage.setItem('googleCypress', JSON.stringify(userItem))
-
-
-            // cy.setCookie('oauthAccessToken', access_token)
-            // cy.setCookie('accessToken', access_token)
-            // cy.setCookie('oauthIdToken', id_token)
-            // cy.setCookie('idToken', id_token)
-            // cy.setCookie('federatedId', 'https://accounts.google.com/118101221163971821685')
-            // cy.setCookie('access_token', access_token)
-            // cy.setCookie('id_token', id_token)
-            // cy.setCookie('lastLoginedProvider','google.com')
-
-            // window.localStorage.setItem('oauthAccessToken', access_token)
-            // window.localStorage.setItem('accessToken', access_token)
-            // window.localStorage.setItem('oauthIdToken', id_token)
-            // window.localStorage.setItem('idToken', id_token)
-            // window.localStorage.setItem('federatedId', 'https://accounts.google.com/118101221163971821685')
-            // window.localStorage.setItem('access_token', access_token)
-            // window.localStorage.setItem('id_token', id_token)
-
-            // cy.visit('/')
         })
     })
 })
