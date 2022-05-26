@@ -15,7 +15,6 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
-import 'cypress-xpath'
 import 'dotenv'
 import 'cypress-mochawesome-reporter/register';
 
