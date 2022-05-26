@@ -9,7 +9,7 @@ on:
       - "renovate/**"
 
 jobs:
-  api-test:
+  gmail-test:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -25,7 +25,6 @@ jobs:
         with:
           record: true
           parallel: true
-          # group: API-Test
           spec:
             cypress/integration/*.spec.ts
         env:

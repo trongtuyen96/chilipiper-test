@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "test-all": "npx cypress run --spec cypress/integration/login-view.spec.ts",
+    "test-gmail": "npx cypress run --spec cypress/integration/*.spec.ts",
     "test-login-and-view": "npx cypress run --spec cypress/integration/login-view.spec.ts",
     "test-send-trash-delete": "npx cypress run --spec cypress/integration/send-trash-delete.spec.ts"
   },
