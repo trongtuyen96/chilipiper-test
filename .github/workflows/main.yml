@@ -37,10 +37,10 @@ jobs:
           # pass Google Client ID
           APP_GOOGLE_CLIENTID: ${{ secrets.APP_GOOGLE_CLIENTID }}
 
-          # pass Google Client secret
+          # pass Google Client Secret
           APP_GOOGLE_CLIENT_SECRET: ${{ secrets.APP_GOOGLE_CLIENT_SECRET }}
 
-          # pass Google Refresh token
+          # pass Google Refresh Token
           GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
 
       - name: Upload failure screenshots
