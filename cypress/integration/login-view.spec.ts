@@ -19,7 +19,7 @@ describe("Gmail tests - Login and View", () => {
     })
 
     context("Received emails of user", () => {
-        it("User should have 4 emails in mailbox", () => {
+        it("User should have more than 4 emails in mailbox", () => {
             cy.getVariable('access_token').then(access_token => {
                 cy.request({
                     method: 'GET',
@@ -27,7 +27,7 @@ describe("Gmail tests - Login and View", () => {
                     headers: { Authorization: `Bearer ${access_token}` }
                 }).then(({ status, body }) => {
                     expect(status).to.equal(200)
-                    expect(body.messages).to.have.lengthOf(4)
+                    expect(body.messages).to.have.length.greaterThan(4)
                 })
             })
         })
@@ -35,11 +35,11 @@ describe("Gmail tests - Login and View", () => {
         it("Validate the email's content", () => {
             cy.getVariable('access_token').then(access_token => {
 
-                // Get list of emails
+                // Get list of emails from trongtuyen96@gmail.com
                 cy.request({
                     method: 'GET',
-                    url: gmailAPIUrl + '/messages',
-                    headers: { Authorization: `Bearer ${access_token}` }
+                    url: gmailAPIUrl + '/messages?q=from:trongtuyen96@gmail.com',
+                    headers: { Authorization: `Bearer ${access_token}` },
                 }).then(({ body }) => {
 
                     // Get first email id
